@@ -1,0 +1,5 @@
+{
+    "scripts": {
+        "better-auth:generate": "npx @better-auth/cli generate --config ./src/lib/auth.utils.ts --output ./src/lib/auth.db.ts --yes"
+    }
+}
