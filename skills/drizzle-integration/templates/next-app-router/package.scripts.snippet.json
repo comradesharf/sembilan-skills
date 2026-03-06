@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "drizzle:migrate": "drizzle-kit migrate",
+    "drizzle:generate": "drizzle-kit generate",
+    "drizzle:push": "drizzle-kit push",
+    "drizzle:studio": "drizzle-kit studio"
+  }
+}
