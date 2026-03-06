@@ -1,0 +1,34 @@
+{
+    "version": "7",
+    "dialect": "postgresql",
+    "entries": [
+        {
+            "idx": 0,
+            "version": "7",
+            "when": 1766668324177,
+            "tag": "0000_0000_uuidv7",
+            "breakpoints": true
+        },
+        {
+            "idx": 1,
+            "version": "7",
+            "when": 1766668346223,
+            "tag": "0001_0001_base32",
+            "breakpoints": true
+        },
+        {
+            "idx": 2,
+            "version": "7",
+            "when": 1766668368374,
+            "tag": "0002_0002_typeid",
+            "breakpoints": true
+        },
+        {
+            "idx": 3,
+            "version": "7",
+            "when": 1766668397123,
+            "tag": "0003_0003_operator",
+            "breakpoints": true
+        }
+    ]
+}

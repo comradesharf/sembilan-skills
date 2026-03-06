@@ -9,6 +9,8 @@ These files are reusable starters for `Drizzle ORM + PostgreSQL`.
 - `lib/db.ts` -> `src/server/db.ts` (or your server lib path)
 - `lib/schema.example.db.ts` -> `src/server/schema/example.db.ts`
 - `package.scripts.snippet.json` -> merge into `package.json` scripts
+- `drizzle/*.sql` -> `drizzle/*.sql`
+- `drizzle/meta/*.json` -> `drizzle/meta/*.json`
 
 ## Required Adjustments After Copy
 
@@ -17,6 +19,7 @@ These files are reusable starters for `Drizzle ORM + PostgreSQL`.
 3. Verify the `schema` glob in `drizzle.config.ts` matches your repo layout.
 4. Set `DATABASE_URL` in your local env.
 5. Keep migration output in `./drizzle` unless your project uses another location.
+6. Copy the full baseline migration bundle (`drizzle/*.sql` and `drizzle/meta/*.json`) before generating any new migrations.
 
 ## Optional Changes
 

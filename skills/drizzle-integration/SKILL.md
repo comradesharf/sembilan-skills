@@ -23,6 +23,8 @@ Use these templates as the default source when integrating into a Next.js App Ro
 - `templates/next-app-router/lib/db.ts`
 - `templates/next-app-router/lib/schema.example.db.ts`
 - `templates/next-app-router/package.scripts.snippet.json`
+- `templates/next-app-router/drizzle/*.sql`
+- `templates/next-app-router/drizzle/meta/*.json`
 - `templates/next-app-router/README.md`
 
 ## Reference Implementation
@@ -31,6 +33,8 @@ Use this repo-specific reference when the target project follows the same conven
 
 - `reference/sembilan-registry-radix-node/drizzle.config.ts`
 - `reference/sembilan-registry-radix-node/lib/db.ts`
+- `reference/sembilan-registry-radix-node/drizzle/*.sql`
+- `reference/sembilan-registry-radix-node/drizzle/meta/*.json`
 - `reference/sembilan-registry-radix-node/drizzle/README.md`
 - `reference/sembilan-registry-radix-node/README.md`
 
@@ -72,12 +76,18 @@ Use this repo-specific reference when the target project follows the same conven
   - `drizzle:push`
   - `drizzle:studio`
 
-7. Generate first migration when appropriate.
-- Run `drizzle-kit generate`.
+7. Copy the baseline migration bundle into every target project.
+- Always copy all files from `templates/next-app-router/drizzle/` to target `drizzle/`.
+- Include both SQL migration files and `meta/` snapshot/journal files.
+- Keep baseline filenames and ordering unchanged.
+- If target already has migrations, append new migrations after baseline and do not rewrite existing history.
+
+8. Generate first project-specific migration when appropriate.
+- Run `drizzle-kit generate` only after baseline migrations are present.
 - Review SQL output under `drizzle/`.
 - Do not modify historical migrations unless explicitly requested.
 
-8. Validate integration.
+9. Validate integration.
 - Run type-check and lint commands available in the repo.
 - Ensure at least one query compiles against imported schema.
 - Verify `DATABASE_URL` is documented.
@@ -96,5 +106,6 @@ Use this repo-specific reference when the target project follows the same conven
 - Runtime db client exists and exports a typed Drizzle instance.
 - Schema files are discoverable by the configured glob.
 - Migration scripts are present in `package.json`.
-- At least one migration exists or generation is documented.
+- Baseline migration bundle exists in target `drizzle/` (`*.sql` + `meta/*.json`).
+- Additional migrations are generated only after baseline is copied.
 - Type-check passes for changed files.
